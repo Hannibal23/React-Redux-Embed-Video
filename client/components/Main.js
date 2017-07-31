@@ -3,7 +3,13 @@ import React from 'react';
 const Main = React.createClass({
     render(){
         return(
-            <h1>Yo</h1>
+            <div className="wrapper">
+                <div className="container">
+                    <div className="col-md-6">
+                        {React.cloneElement({...this.props}.children, {...this.props})}
+                    </div>
+                </div>
+            </div>
         );
     }
 })

@@ -10,8 +10,15 @@ export function increment(index) {
 export function addComment(postId, author, comment) {
   return {
     type: 'ADD_COMMENT',
-    postId,
     author,
     comment
   }
+}
+
+export function addLink(video, link) {
+    return {
+        type: 'GET_LINK',
+        video,
+        link
+    }
 }

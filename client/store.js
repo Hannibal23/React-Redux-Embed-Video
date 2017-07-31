@@ -7,7 +7,13 @@ const enhancers = compose(
     window.devToolsExtension ? window.devToolsExtension(): f => f
 );
 
-const defaultState = {};
+const ala = ['y45gthg']
+
+const defaultState = {
+    video,
+    comments
+}
+
 
 const store = createStore(rootReducer, defaultState, enhancers);
 export const history = syncHistoryWithStore(browserHistory, store);
@@ -18,5 +24,5 @@ if (module.hot) {
         store.replaceReducer(nextRootReducer);
     })
 }
-
+console.log(store.getState())
 export default store;
