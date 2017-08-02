@@ -1,6 +1,9 @@
 import React from 'react';
 
-const Input = React.createClass({
+export default class Input extends React.Component{
+    constructor(props) {
+        super(props)
+    }
     handleLink(e) {
         const link = this.refs.link.value;
         e.preventDefault();
@@ -15,19 +18,17 @@ const Input = React.createClass({
         }else {
             alert('enter valid link');
         }
-        console.log(this.props);
-    },
+        console.log(this.props.router);
+    }
 
     render(){
         return(
             <form onSubmit={this.handleLink}>
                 <div className="form-group">
-                    <label htmlFor="videoInput">Enter link {this.props.video}</label>
+                    <label htmlFor="videoInput">Enter link { this.props.video.id }</label>
                     <input id="videoInput" ref="link" type="text" className="form-control" placeholder="Text input" />
                 </div>
             </form>
         );
     }
-})
-
-export default Input;
+}

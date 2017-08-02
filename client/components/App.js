@@ -5,9 +5,7 @@ import Main from './Main';
 
 function mapStateToProps(state) {
     return{
-        video: state.video,
-        comments: state.comments,
-        popup: state.popup
+        video: state.embed
     }
 }
 

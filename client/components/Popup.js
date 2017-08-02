@@ -3,7 +3,9 @@ import React from 'react';
 const Popup = React.createClass({
     render(){
         return(
-            <div>Oy shit</div>
+
+            <div>Oy shit {this.props.video.id}</div>
+
         );
     }
 })
