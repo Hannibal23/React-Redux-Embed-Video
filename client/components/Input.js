@@ -1,11 +1,13 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
-export default class Input extends React.Component{
+class Input extends React.Component{
     constructor(props) {
         super(props)
+        this.handleLink = this.handleLink.bind(this);
     }
     handleLink(e) {
-        const link = this.refs.link.value;
+        const link = this.input.value;
         e.preventDefault();
         if(link.charAt(12) == 'y') {
             const number = link.substring(32);
@@ -17,8 +19,9 @@ export default class Input extends React.Component{
             this.props.addLink(number, embed);
         }else {
             alert('enter valid link');
+            return;
         }
-        console.log(this.props.router);
+        this.props.history.push('/popup');
     }
 
     render(){
@@ -26,9 +29,11 @@ export default class Input extends React.Component{
             <form onSubmit={this.handleLink}>
                 <div className="form-group">
                     <label htmlFor="videoInput">Enter link { this.props.video.id }</label>
-                    <input id="videoInput" ref="link" type="text" className="form-control" placeholder="Text input" />
+                    <input id="videoInput" ref={(input) => this.input = input} type="text" className="form-control" placeholder="Text input" />
                 </div>
             </form>
         );
     }
 }
+
+export default withRouter(Input);
