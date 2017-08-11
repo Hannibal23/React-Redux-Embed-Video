@@ -7,9 +7,10 @@ export function increment(index) {
 }
 
 // add comment
-export function addComment(author, comment) {
+export function addComment(video, author, comment) {
   return {
     type: 'ADD_COMMENT',
+    video,
     author,
     comment
   }

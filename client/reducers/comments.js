@@ -12,4 +12,19 @@ function postComments(state = [], action) {
     return state;
 }
 
-export default postComments;
+function comments(state = [], action) {
+    if(typeof action.video !== 'undefined') {
+        return {
+            ...state,
+            [action.video]: postComments(state[action.postId], action)
+        }
+    }else {
+        return {
+            ...state,
+            [action.video]: postComments(state[action.video], action)
+        }
+    }
+    return state;
+}
+
+export default comments;

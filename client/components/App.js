@@ -6,7 +6,7 @@ import Main from './Main';
 function mapStateToProps(state) {
     return{
         video: state.embed,
-        comments: state.postComments
+        comments: state.comments
     }
 }
 

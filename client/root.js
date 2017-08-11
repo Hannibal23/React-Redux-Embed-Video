@@ -13,7 +13,7 @@ const router = (
         <Router history={history}>
             <Route path="/" component={App}>
                 <IndexRoute component={Input}></IndexRoute>
-                <Route path="/popup" component= {Popup}></Route>
+                <Route path="/popup:videoId" component= {Popup}></Route>
             </Route>
         </Router>
     </Provider>

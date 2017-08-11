@@ -21,7 +21,7 @@ class Input extends React.Component{
             alert('enter valid link');
             return;
         }
-        this.props.history.push('/popup');
+        this.props.history.push(`/popup${this.props.video.id}`);
     }
 
     render(){

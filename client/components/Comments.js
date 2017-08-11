@@ -9,7 +9,6 @@ export default class Comments extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-
     }
     renderComment(comment, i) {
         return (
@@ -31,17 +30,19 @@ export default class Comments extends Component {
     }
 
     handleSubmit(e) {
+        const { videoId } = this.props.params;
+
         e.preventDefault();
         const author = this.state.authorVal;
         const comment = this.state.commentVal;
-        this.props.addComment(author, comment);
+        this.props.addComment(videoId, author, comment);
         this.form.reset();
     }
 
     render() {
         return (
             <div className="comments">
-                {this.props.comments.map(this.renderComment)}
+                {this.props.postComments.map(this.renderComment)}
                 <form ref={(form) => this.form = form} className="comment-form" onSubmit={this.handleSubmit}>
                   <input type="text" value={this.state.authorVal} onChange={this.handleChange.bind(this, 'author')} placeholder="author"/>
                   <input type="text" value={this.state.commentVal} onChange={this.handleChange.bind(this, 'comment')} placeholder="comment"/>
